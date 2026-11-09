@@ -5,107 +5,150 @@
 <title>Cleber Mello · Método ACT</title>
 <meta name="description" content="Diagnóstico, mentoria e programas de carreira com Cleber Mello. 20 anos em Avon, Natura &Co e Mars.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <style>
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 0 70px;overflow:hidden}
-.hero-img{position:absolute;right:0;top:0;height:100%;width:54%;object-fit:cover;object-position:center 20%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
-.hero .wrap{position:relative;width:100%}
-.hero h1{font-size:clamp(30px,5.4vw,78px);margin:22px 0 24px}
-.hero h1 .ln{display:block;white-space:nowrap}
-.hero h1 em{font-style:normal;color:var(--or)}
-.hero p{color:var(--mut);max-width:470px;margin:22px 0 30px}
-.news{margin-top:56px;max-width:420px;display:flex;gap:16px;align-items:center;background:rgba(22,29,38,.92);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
-.news img{width:64px;height:64px;border-radius:10px;object-fit:cover}
-.news small{color:var(--or);font-size:11px;letter-spacing:.15em}
-.news b{display:block;font-weight:500;font-size:15px}
-.news span{font-size:13px;color:var(--mut)}
-@media(max-width:1000px){.hero-img{width:100%;opacity:.3;-webkit-mask-image:linear-gradient(transparent,#000 25%,transparent);mask-image:linear-gradient(transparent,#000 25%,transparent)}}
+/* hero estilo Roberto Borja: foto em tela cheia + nome grande em serifa no rodapé */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#0f1218;color:#F3EEE6}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 22%;animation:zoomIn 2.4s var(--ease) both}
+@keyframes zoomIn{from{transform:scale(1.08);opacity:0}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,16,.35) 0%,rgba(10,12,16,0) 30%,rgba(10,12,16,.15) 55%,rgba(10,12,16,.82) 100%)}
+.hero-in{position:absolute;left:0;right:0;bottom:0;z-index:1;padding-bottom:clamp(36px,6vh,64px)}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(64px,min(13vw,24vh),210px);line-height:.86;letter-spacing:-.045em}
+.hero h1 .w>span{transition-duration:1.2s}
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:30px;padding-top:24px;border-top:1px solid rgba(243,238,230,.25)}
+.hero-foot p{font-size:15px;color:#D9D2C8;line-height:1.6}.hero-foot p .ln{display:block;white-space:nowrap}
+.hero-links{display:flex;gap:28px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.hero-links a{border-bottom:1px solid rgba(243,238,230,.4);padding-bottom:4px;transition:border-color .2s}
+.hero-links a:hover{border-color:#F3EEE6}
+.hero-foot,.hero .tag{animation:up 1s var(--ease) 1s backwards}
+.hero .tag{position:absolute;top:110px;left:0;right:0;z-index:1;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#D9D2C8}
+@keyframes up{from{opacity:0;transform:translateY(18px)}}
+.brands{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.brands small{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.brands span{font-family:var(--serif);font-size:28px;color:#8B8176;letter-spacing:-.01em}
+.intro-h{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.6vw,50px);line-height:1.12;letter-spacing:-.02em;margin-bottom:28px}
+.intro-h em{font-style:italic;color:var(--acc)}
+.portrait{position:relative}
+.portrait img{aspect-ratio:4/5}
+.portrait figcaption{position:absolute;right:-26px;bottom:44px;background:#1A1714;color:#F3EEE6;padding:22px 24px;border-radius:18px;font-size:13px;max-width:240px}
+.portrait figcaption b{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:36px;color:#F0A070;line-height:1;margin-bottom:8px}
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.path>div{background:var(--bg2);border-radius:var(--r);padding:34px}
+.path small{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--acc)}
+.path h3{font-family:var(--serif);font-weight:400;font-size:28px;margin:14px 0 8px}
+.path p{color:var(--mut);font-size:15px;margin-bottom:22px}
+.path a{font-size:14px;font-weight:500;border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .2s}
+.path a:hover{border-color:var(--acc)}
+@media(max-width:1060px){
+  .hero{padding:120px 0 70px}
+  .hero-g{grid-template-columns:1fr;gap:50px}
+  .float.f1{left:14px;bottom:20px}.float.f2{right:14px;top:14px}
+  .portrait figcaption{right:14px}
+  .path{grid-template-columns:1fr}
+}
+@media(max-width:640px){.hero h1{font-size:min(84px,23vw)}.hero-img{object-position:62% 18%}.hero-foot{flex-direction:column;align-items:flex-start}.hero-foot p .ln{white-space:normal;display:inline}.hero-links{gap:20px;font-size:12px}.brands span{font-size:22px}.brands{justify-content:flex-start;gap:14px 26px}.brands small{width:100%}}
 </style>
 </head>
 <body data-root="" data-page="inicio">
 
 <header class="hero">
   <img class="hero-img" src="assets/ipc/2cleber.webp" alt="Cleber Mello">
-  <div class="wrap">
-    <div class="eyebrow"><b>■</b>&nbsp; Cleber Mello · Consultor de carreira</div>
-    <h1 class="dp"><span class="ln">O próximo nível</span> <span class="ln">da sua <em>carreira</em></span></h1>
-    <div class="chips"><span class="chip">20+ anos</span><span class="chip">Avon</span><span class="chip">Natura &amp;Co</span><span class="chip">Mars</span></div>
-    <p>Diagnóstico, mentoria e programas para quem entrega resultado e quer ser visto como pronto para crescer.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href="programas/" class="btn btn-w">Conhecer os programas</a>
-      <a href="https://www.youtube.com/watch?v=R1Y3SHXK1mA" target="_blank" rel="noopener" class="btn btn-d">▶ Assistir apresentação</a>
+  <div class="tag"><div class="wrap">Mentor de carreira · Método ACT</div></div>
+  <div class="hero-in"><div class="wrap">
+    <h1 class="dp">Cleber<br>Mello</h1>
+    <div class="hero-foot">
+      <p><span class="ln">Mentoria e diagnóstico de carreira para profissionais corporativos.</span> <span class="ln">20 anos liderando equipes em Avon, Natura&nbsp;&amp;Co e Mars.</span></p>
+      <div class="hero-links"><a href="programas/">Ver programas</a><a href="programas/ipc/">Fazer o IPC</a></div>
     </div>
-    <a class="news" href="programas/mentoria/#dobro">
-      <img src="assets/stock/aperto-mao.webp" alt="">
-      <div><small>● BLACK NOVEMBER</small><b>Mentoria em dobro até 30/11</b><span>Contrate 5 sessões e ganhe mais 5 →</span></div>
-    </a>
-  </div>
+  </div></div>
 </header>
 
-<div class="wrap rv"><div class="nums">
-  <div><div class="dp">20+</div><span>anos em multinacionais</span></div>
-  <div><div class="dp">30</div><span>indicadores no IPC</span></div>
-  <div><div class="dp">3</div><span>pilares do Método ACT</span></div>
-  <div><div class="dp">1:1</div><span>mentoria individual</span></div>
+<div class="wrap"><div class="brands rv">
+  <small>Trajetória em</small><span>Avon</span><span>Natura &amp;Co</span><span>Mars</span><span><em class="hl">Método ACT</em></span>
 </div></div>
-
-<section class="car-sec">
-  <div class="wrap">
-    <div class="head-row rv"><div><div class="eyebrow"><b>■</b>&nbsp; Programas</div><h2 class="dp">Escolha por onde começar</h2></div><a href="programas/" class="btn btn-d">Ver todos</a></div>
-    <div class="car" id="car"></div>
-    <div class="ctl"><button class="arrow" id="car-p" aria-label="Anterior">←</button><div class="car-info"><b id="ci-t"></b><span id="ci-s"></span></div><button class="arrow" id="car-n" aria-label="Próximo">→</button></div>
-  </div>
-</section>
 
 <section>
   <div class="wrap split">
-    <img class="ph rv" src="assets/stock/escritorio.webp" alt="Escritório corporativo" style="aspect-ratio:4/5" loading="lazy">
-    <div class="rv">
-      <div class="eyebrow"><b>■</b>&nbsp; Quem é</div>
-      <h2 class="dp">Duas décadas vendo quem cresce e por quê</h2>
-      <p class="lead">Cleber passou mais de 20 anos em Avon, Natura &amp;Co e Mars, liderando equipes em planejamento e estratégia. Hoje usa essa vivência para ajudar profissionais a entender o que separa competência de promoção.</p>
-      <a href="sobre/" class="btn btn-w" style="margin-top:26px">Conhecer a história</a>
+    <div>
+      <div class="eyebrow">Quem é</div>
+      <p class="intro-h rv" style="margin-top:22px">Competência e <em>percepção de competência</em> são coisas diferentes. Foi isso que 20 anos de corporativo me ensinaram.</p>
+      <p class="lead rv">Cleber liderou equipes de planejamento e estratégia em multinacionais e viu de perto quem era promovido e por quê. Hoje ajuda profissionais a entender o que separa entregar bem de ser escolhido.</p>
+      <a href="sobre/" class="btn btn-w arr rv" style="margin:34px 0 56px">Conhecer a história</a>
+      <div class="nums">
+        <div><div class="dp">20+</div><span>anos em multinacionais</span></div>
+        <div><div class="dp">30</div><span>indicadores no IPC</span></div>
+      </div>
     </div>
+    <figure class="portrait">
+      <img class="ph" src="assets/stock/escritorio.webp" alt="Escritório corporativo" loading="lazy">
+      <figcaption class="rv"><b>A·C·T</b>Alinhamento, Competência e Transformação</figcaption>
+    </figure>
   </div>
 </section>
 
-<section>
+<section class="dark car-sec">
   <div class="wrap">
-    <div class="head-row rv"><div><div class="eyebrow"><b>■</b>&nbsp; O método</div><h2 class="dp">A · C · T</h2><p class="lead">Três perguntas que explicam por que uma carreira avança ou trava.</p></div><a href="metodo/" class="btn btn-d">Entender o método</a></div>
-    <div class="grid3">
-      <div class="card-g act-c rv"><div class="dp">A</div><h3>Alinhamento</h3><p>Você sabe para onde está indo?</p></div>
-      <div class="card-g act-c rv"><div class="dp">C</div><h3>Competência</h3><p>Você tem e aplica o que o próximo nível exige?</p></div>
-      <div class="card-g act-c rv"><div class="dp">T</div><h3>Transformação</h3><p>O mercado consegue perceber o valor que você entrega?</p></div>
+    <div class="head-row"><div><div class="eyebrow" style="color:#F0A070">Programas</div><h2 class="dp">Escolha por onde <em>começar</em></h2></div><a href="programas/" class="btn btn-d arr">Ver todos</a></div>
+    <div class="car" id="car"></div>
+    <div class="ctl"><button class="arrow" id="car-p" aria-label="Anterior">←</button><div class="car-info"><b id="ci-t"></b><span id="ci-s"></span></div><button class="arrow" id="car-n" aria-label="Próximo">→</button></div>
+    <div class="car-bar" id="car-bar"><i></i></div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <div class="head-row"><div><div class="eyebrow">O método</div><h2 class="dp">Três perguntas que <em>destravam</em> uma carreira</h2></div><a href="metodo/" class="btn btn-d arr">Entender o método</a></div>
+    <div class="act-rows">
+      <div class="act-row rv"><div class="dp">A</div><h3>Alinhamento</h3><p>Você sabe para onde está indo e o que o próximo nível exige?</p></div>
+      <div class="act-row rv"><div class="dp">C</div><h3>Competência</h3><p>Você tem e aplica os recursos que esse nível pede, no dia a dia?</p></div>
+      <div class="act-row rv"><div class="dp">T</div><h3>Transformação</h3><p>O mercado consegue perceber o valor que você entrega?</p></div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap rv">
-    <p class="quote">Competência e <em>percepção de competência</em> são coisas diferentes.</p>
-    <p class="eyebrow" style="margin-top:24px">Cleber Mello · @acelera.carreira</p>
-  </div>
-</section>
+<div class="marquee" aria-hidden="true"><div class="marquee-in">
+  <span>Promoção</span><span>Liderança</span><span>Posicionamento</span><span>Visibilidade</span><span>Transição de carreira</span><span>Autoconhecimento</span>
+  <span>Promoção</span><span>Liderança</span><span>Posicionamento</span><span>Visibilidade</span><span>Transição de carreira</span><span>Autoconhecimento</span>
+</div></div>
 
 <section>
   <div class="wrap slider">
-    <div class="head-row rv"><div><div class="eyebrow"><b>■</b>&nbsp; Quem já fez</div><h2 class="dp">Resultados reais</h2></div>
+    <div class="head-row"><div><div class="eyebrow">Quem já fez</div><h2 class="dp">Resultados <em>reais</em></h2></div>
       <div class="slider-ctl"><button class="arrow" data-p aria-label="Anterior">←</button><button class="arrow" data-n aria-label="Próximo">→</button></div></div>
     <div class="track" data-deps></div>
     <div class="dots"></div>
-    <div class="center" style="margin-top:30px"><a href="depoimentos/" class="btn btn-d">Ver todos os depoimentos</a></div>
+  </div>
+</section>
+
+<div class="band">
+  <img src="assets/stock/sala-cidade.webp" alt="">
+  <div class="wrap">
+    <p class="quote rv">"Ser indispensável na execução não significa estar <em>pronto para o próximo nível</em>."</p>
+    <p class="rv" style="margin-top:28px;color:#D9CFC2;font-size:14px;letter-spacing:.1em">CLEBER MELLO · @ACELERA.CARREIRA</p>
+  </div>
+</div>
+
+<section class="light">
+  <div class="wrap">
+    <div class="eyebrow">Como começar</div>
+    <h2 class="dp" style="margin-bottom:50px">Um caminho em <em>três passos</em></h2>
+    <div class="path">
+      <div class="rv"><small>01</small><h3>Diagnóstico IPC</h3><p>30 indicadores mostram onde estão suas forças e seus gargalos.</p><a href="programas/ipc/">A partir de R$ 249 →</a></div>
+      <div class="rv"><small>02</small><h3>Devolutiva</h3><p>50 minutos com o Cleber para interpretar o resultado e definir prioridades.</p><a href="programas/ipc/#planos">IPC Completo →</a></div>
+      <div class="rv"><small>03</small><h3>Mentoria ACT</h3><p>Acompanhamento individual, sessão a sessão, até o próximo nível.</p><a href="programas/mentoria/">Conhecer a mentoria →</a></div>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="cta-box rv">
-      <img src="assets/stock/sala-cidade.webp" alt="">
-      <div class="eyebrow"><b>■</b>&nbsp; Próximo passo</div>
-      <h2 class="dp">Descubra o que falta para você avançar</h2>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <a href="programas/ipc/" class="btn btn-o">Fazer meu diagnóstico</a>
+      <img src="assets/stock/conferencia.webp" alt="">
+      <div class="eyebrow">Próximo passo</div>
+      <h2 class="dp">Descubra o que falta para você <em>avançar</em></h2>
+      <div class="acts" style="justify-content:center">
+        <a href="programas/ipc/" class="btn btn-o arr">Fazer meu diagnóstico</a>
         <a href="contato/" class="btn btn-d">Falar com o Cleber</a>
       </div>
     </div>
@@ -113,5 +156,6 @@
 </section>
 
 <script src="assets/site.js"></script>
+<script async src="https://pinaskit.vercel.app/w.js" data-pk="39xkea4tn7" data-api="https://qdpwawkeiyvggcfonfsa.supabase.co/functions/v1"></script>
 </body>
 </html>
